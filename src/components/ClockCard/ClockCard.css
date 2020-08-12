@@ -1,0 +1,26 @@
+.clock {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: auto;
+  max-width: 350px;
+  max-height: 150px;
+  margin: 10px;
+  padding: 10px 10px;
+  background-color: #eee;
+  border: 1px solid #eee;
+  flex: 1;
+}
+
+.clock:hover {
+  border-color: #ccc;
+  background: #f4f4f4;
+  color: #666;
+}
+
+.clock__time {
+  font-size: 20px;
+  font-weight: 900;
+  color: #999;
+}

@@ -1,0 +1,11 @@
+.time__title {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.time__clock {
+  text-align: center;
+  font-size: 100px;
+  font-weight: 900;
+  color: #333;
+}

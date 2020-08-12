@@ -1,0 +1,11 @@
+.header {
+  max-width: 100%;
+
+  background-color: #bbdef0;
+}
+
+.header__title {
+  padding: 10px;
+  font-size: 20px;
+  color: #f08700;
+}
