@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./TimeShow.css";
-import { getTimeByTimeZone } from "../../utils/time";
 import { useStateValue } from "../../ClockProvider";
+import { getTimeByTimeZone } from "../../utils/time";
+import "./TimeShow.css";
 
 function TimeShow(props) {
   const [{ city }] = useStateValue();

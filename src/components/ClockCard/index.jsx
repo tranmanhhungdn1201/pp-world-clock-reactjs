@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import "./ClockCard.css";
-import { getTimeByTimeZone } from "../../utils/time";
+import React, { useEffect, useState } from "react";
 import { useStateValue } from "../../ClockProvider";
+import { getTimeByTimeZone } from "../../utils/time";
+import "./ClockCard.css";
 
 ClockCard.propTypes = {
   city: PropTypes.object

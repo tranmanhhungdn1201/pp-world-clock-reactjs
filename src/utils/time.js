@@ -1,7 +1,6 @@
 export const getTimeByTimeZone = (timezone) => {
-  let date = new Date().toLocaleTimeString();
   if (timezone) {
-    date = new Date().toLocaleTimeString("vi-VI", { timeZone: timezone });
+    return new Date().toLocaleTimeString("vi-VI", { timeZone: timezone });
   }
-  return date;
+  return new Date().toLocaleTimeString();
 };

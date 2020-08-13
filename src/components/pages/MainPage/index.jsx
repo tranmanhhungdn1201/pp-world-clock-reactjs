@@ -1,8 +1,8 @@
-import React, { useState }from "react";
-import Header from "../../Header";
-import TimeShow from "../../TimeShow";
-import ListClock from "../../ListClock";
+import React, { useState } from "react";
 import { cities } from "../../../constants/timezone";
+import Header from "../../Header";
+import ListClock from "../../ListClock";
+import TimeShow from "../../TimeShow";
 import "./MainPage.css";
 
 function MainPage(props) {
