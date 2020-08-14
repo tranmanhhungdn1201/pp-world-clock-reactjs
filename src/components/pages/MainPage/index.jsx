@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { cities } from "../../../constants/timezone";
+import { useStateValue } from "../../../ClockProvider";
 import Header from "../../Header";
 import ListClock from "../../ListClock";
 import TimeShow from "../../TimeShow";
 import "./MainPage.css";
 
 function MainPage(props) {
+  const [ { cities } ] = useStateValue();
   const [ city , setCity] = useState({});
   const handleCity = (data) => {
     setCity(data);

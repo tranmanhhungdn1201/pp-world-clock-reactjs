@@ -1,7 +1,7 @@
 This pet project world-clock-reatjs
 
 ## Demo
-[https://codesandbox.io/s/pp-world-clock-jpmvs]
+[https://world-clock-app-6e506.firebaseapp.com/]
 
 ## Available Scripts
 

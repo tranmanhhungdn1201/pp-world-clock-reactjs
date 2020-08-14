@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import { useStateValue } from "../../ClockProvider";
-import { getTimeByTimeZone } from "../../utils/time";
+import { formatTime, getTimeByTimeZone } from "../../utils/time";
 import "./ClockCard.css";
 
 ClockCard.propTypes = {
@@ -13,27 +13,36 @@ ClockCard.defaultProps = {
 };
 
 function ClockCard(props) {
-  const [{ state }, dispatch] = useStateValue();
+  const [{ active }, dispatch] = useStateValue();
   const { city } = props;
   const { name, timezone } = city;
+  const isActive = active === timezone ? true : false;
   const [time, setTime] = useState("");
 
   useEffect(() => {
     const setClock = setInterval(() => {
-      const time = getTimeByTimeZone(timezone);
-      setTime(time);
-    }, 1000);
+      initTime();
+    }, 60000);
+    initTime();
     return () => clearInterval(setClock);
   });
+
+  const initTime = () => {
+    const time = getTimeByTimeZone(timezone);
+    setTime(formatTime(time));
+  }
+
   const handleClick = () => {
     const data = {
       type: "SET_CITY",
       data: city
     };
     dispatch(data);
+    initTime();
   };
+
   return (
-    <div className="clock" onClick={handleClick}>
+    <div className={`clock ${isActive ? 'active' : ''}`} onClick={handleClick}>
       <h3 className="clock__city">{name}</h3>
       <p className="clock__time">{time}</p>
     </div>

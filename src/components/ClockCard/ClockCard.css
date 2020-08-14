@@ -11,6 +11,13 @@
   background-color: #eee;
   border: 1px solid #eee;
   flex: 1;
+  transition: all 0.3s;
+}
+
+.clock.active {
+  border-color: #ccc;
+  background: #f4f4f4;
+  color: #666;
 }
 
 .clock:hover {
@@ -19,8 +26,11 @@
   color: #666;
 }
 
+.clock__city {
+  font-size: 20px;
+}
+
 .clock__time {
   font-size: 20px;
-  font-weight: 900;
   color: #999;
 }

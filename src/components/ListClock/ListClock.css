@@ -5,3 +5,25 @@
   justify-content: space-between;
   width:100%;
 }
+
+.listClock__addClock {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: auto;
+  max-width: 350px;
+  height: 100px;
+  margin: 10px;
+  padding: 10px 10px;
+  background-color: #eee;
+  border: 1px solid #eee;
+  flex: 1;
+  transition: all 0.3s;
+}
+
+.listClock__addClock:hover {
+  border-color: #ccc;
+  background: #f4f4f4;
+  color: #666;
+}

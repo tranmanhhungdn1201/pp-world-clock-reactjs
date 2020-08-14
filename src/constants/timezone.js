@@ -1,4 +1,4 @@
-export const timezone = [
+export const timezones = [
   "Europe/Andorra",
   "Asia/Dubai",
   "Asia/Kabul",
