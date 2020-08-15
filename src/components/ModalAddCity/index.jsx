@@ -3,6 +3,7 @@ import Select from 'react-select';
 import { Button, Form, FormGroup, Input, Label, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import { useStateValue } from '../../ClockProvider';
 import { timezones } from '../../constants/timezone';
+import { toast, ToastContainer } from "react-toastify";
 
 const ModalAddCity = (props) => {
   const { show, toggle} = props;
@@ -72,6 +73,7 @@ const ModalAddCity = (props) => {
         setTimezone('');
         setName('');
         toggle();
+        toast.success('Thêm thành công.')
     }
   }
 
@@ -88,7 +90,14 @@ const ModalAddCity = (props) => {
         <Form>
           <FormGroup>
               <Label for="name">Tên đồng hồ</Label>
-              <Input type="text" name="name" id="name" value={name} onChange={handleChange}/>
+              <Input
+                type="text"
+                name="name"
+                id="name"
+                value={name}
+                onChange={handleChange}
+                maxLength="12"
+              />
                 { nameError && <p className="text-danger">{nameError}</p> }
           </FormGroup>
           <FormGroup>
@@ -108,6 +117,7 @@ const ModalAddCity = (props) => {
           <Button color="danger" onClick={handleClick}>Đóng</Button>
         </ModalFooter>
       </Modal>
+      <ToastContainer />
     </div>
   );
 }

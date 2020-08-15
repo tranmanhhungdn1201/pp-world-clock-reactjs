@@ -23,8 +23,8 @@ function ListClock(props) {
       {cities.map((city, i) => (
         <ClockCard key={i} city={city} />
       ))}
-      <div className="listClock__addClock clock" onClick={toggle}>
-        <p>Thêm</p>
+      <div className="listClock__addClock" onClick={toggle}>
+        <p className="listClock__label">Thêm</p>
       </div>
       <ModalAddCity show={show} toggle={toggle}/>
     </div>

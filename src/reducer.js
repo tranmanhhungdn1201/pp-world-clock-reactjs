@@ -22,6 +22,18 @@ const reducer = (state, action) => {
         ...state,
         cities: [...state.cities, action.data],
       };
+    case "REMOVE_CITY": {
+      if(!state.active) return state;
+      let citiesNew  = [...state.cities];
+      const index = citiesNew.findIndex(tz => tz.timezone === state.active);
+      if (index === -1) return state;
+      citiesNew.splice(index, 1);
+      return {
+        ...state,
+        active: '',
+        cities: citiesNew,
+      };
+    }
     default:
       return state;
   }

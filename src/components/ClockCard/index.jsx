@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useStateValue } from "../../ClockProvider";
 import { formatTime, getTimeByTimeZone } from "../../utils/time";
 import "./ClockCard.css";
+import ConfirmRemove from "../ConfirmRemove";
 
 ClockCard.propTypes = {
   city: PropTypes.object
@@ -18,6 +19,7 @@ function ClockCard(props) {
   const { name, timezone } = city;
   const isActive = active === timezone ? true : false;
   const [time, setTime] = useState("");
+  const [ show, setShow ] = useState(false);
 
   useEffect(() => {
     const setClock = setInterval(() => {
@@ -26,6 +28,8 @@ function ClockCard(props) {
     initTime();
     return () => clearInterval(setClock);
   });
+
+  const toggle = () => setShow(!show);
 
   const initTime = () => {
     const time = getTimeByTimeZone(timezone);
@@ -42,10 +46,14 @@ function ClockCard(props) {
   };
 
   return (
-    <div className={`clock ${isActive ? 'active' : ''}`} onClick={handleClick}>
-      <h3 className="clock__city">{name}</h3>
-      <p className="clock__time">{time}</p>
-    </div>
+    <>
+      <div className={`clock ${isActive ? 'active' : ''}`} onClick={handleClick}>
+        <button className="clock__close close" onClick={toggle}>x</button>
+        <h3 className="clock__city">{name}</h3>
+        <p className="clock__time">{time}</p>
+      </div>
+      <ConfirmRemove show={show} toggle={toggle} />
+    </>
   );
 }
 
